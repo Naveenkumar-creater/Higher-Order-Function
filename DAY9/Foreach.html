@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    c. Print the following details name, capital, flag using forEach function  
+    <script>
+    let details=new XMLHttpRequest();
+    details.open("GET",`https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json`,`true`);
+    details.send();
+    details.onload=function(){
+        var countryData=JSON.parse(this.response);
+       let detail= countryData.forEach((element) => {
+
+    console.log(`countrie ${element.name},capital ${element.capital},${element.flag}`);     
+    })}
+
+    </script>
+</body>
+</html>

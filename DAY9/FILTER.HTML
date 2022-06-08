@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ const ages = [11, 34, 8, 9, 23, 51, 17, 40, 14];
+
+let olderThan18 = ages.filter((age) => age < 18);
+
+console.log(olderThan18);
+    </script>
+   // Get all the countries from Asia continent /region using Filter function   
+    <script>
+let request=new XMLHttpRequest();
+request.open('GET','https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json', `true`); 
+request.send();
+request.onload=function (){
+    var countryData=JSON.parse(request.response);
+    let asia=countryData.filter((element)=>{
+        if(element.region==='Asia'){
+            return element.name;
+        }
+    })
+    console.log(asia);}
+</script>
+//Get all the countries with a population of less than 2 lakhs using Filter function
+<script>
+    let populat=new XMLHttpRequest();
+    populat.open("GET",`https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json`,`true`);
+    populat.send();
+    populat.onload=function(){
+        var countryData=JSON.parse(this.response);
+        let pop=countryData.filter((element)=>{
+             if(element.population<200000)
+             {
+                return element.population ;
+             }
+        })
+        console.log(pop); }
+    </script>
+    
+</body>
+</html>

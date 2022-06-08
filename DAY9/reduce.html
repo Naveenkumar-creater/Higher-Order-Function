@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Print the total population of countries using reduce function  
+    <script>
+    let details=new XMLHttpRequest();
+    details.open("GET",`https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json`,`true`);
+    details.send();
+    details.onload=function(){
+        var countryData=JSON.parse(this.response);
+       let population= countryData.reduce((abb,element) => {
+              return abb+element.population;
+    },1)
+    console.log(population);
+ }
+
+    </script>
+</body>
+</html>
